@@ -1,4 +1,3 @@
-import React from "react";
 import { getAQIStatus } from "../../utils/aqiAPI";
 
 // Icons
@@ -7,7 +6,6 @@ import {
   WiFog,
 } from "react-icons/wi";
 import { GiSmokeBomb } from "react-icons/gi";
-import { FaLungs } from "react-icons/fa";
 
 const AQIStatus = ({ aqi }) => {
   if (!aqi || !aqi.list || !aqi.list[0]) return null;
@@ -81,7 +79,7 @@ const AQIStatus = ({ aqi }) => {
             ))}
           </ul>
 
-          <a className="btn btn-sm btn-outline-primary mt-2" href="#">
+          <a className="btn btn-sm btn-outline-primary mt-2" href="/">
             Stay Safe
           </a>
         </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   LineChart,
   Line,
@@ -6,8 +5,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  CartesianGrid,
-  defs
+  CartesianGrid
 } from "recharts";
 
 const TemperatureChart = ({ forecast }) => {

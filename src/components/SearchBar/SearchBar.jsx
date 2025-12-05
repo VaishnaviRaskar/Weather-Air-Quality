@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaSearch, FaLocationArrow } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 const SearchBar = ({ onSearch }) => {
   const [city, setCity] = useState("");
