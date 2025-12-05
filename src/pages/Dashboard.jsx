@@ -28,44 +28,43 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [cityName, setCityName] = useState("Loading...");
 
-  // Combined fetch function
-  const fetchAllData = async (value) => {
-    setLoading(true);
+ const fetchAllData = async (value) => {
+  setLoading(true);
 
-    try {
-      let w;
+  try {
+    let w;
 
-      if (typeof value === "string") {
-        w = await fetchCurrentWeather(value);
-        setCityName(value);
-      } else if (value?.lat && value?.lon) {
-        w = await fetchCurrentWeather(value);
-
-        try {
-          const name = await reverseGeocode(value.lat, value.lon);
-          setCityName(name || w.name || "Current Location");
-        } catch {
-          setCityName(w.name || "Current Location");
-        }
-      }
-
-      setWeather(w);
-
-      const f = await fetch5DayForecast(
-        typeof value === "string"
-          ? value
-          : { lat: w.coord.lat, lon: w.coord.lon }
-      );
-      setForecast(f);
-
-      const a = await fetchAQI(w.coord.lat, w.coord.lon);
-      setAqi(a);
-    } catch (e) {
-      alert("Failed to fetch data.");
-    } finally {
-      setLoading(false);
+    // 1️⃣ Fetch Weather
+    if (typeof value === "string") {
+      w = await fetchCurrentWeather(value);
+      setCityName(w.name);
+    } else {
+      w = await fetchCurrentWeather(value);
+      const name = await reverseGeocode(value.lat, value.lon);
+      setCityName(name || w.name || "Current Location");
     }
-  };
+
+    setWeather(w);
+
+    // 2️⃣ Fetch Forecast
+    const f = await fetch5DayForecast({
+      lat: w.coord.lat,
+      lon: w.coord.lon,
+    });
+    setForecast(f);
+
+    // 3️⃣ Fetch AQI
+    const a = await fetchAQI(w.coord.lat, w.coord.lon);
+    setAqi(a);
+  } catch (err) {
+    console.error("Fetch Error:", err);
+    alert("Failed to fetch data. Using fallback city.");
+    fetchAllData("New Delhi");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   // On mount
   useEffect(() => {

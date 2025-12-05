@@ -11,7 +11,7 @@ export const fetchCurrentWeather = async (cityOrCoords) => {
   } else {
     const cityName = encodeURIComponent(cityOrCoords);
     url = `${WEATHER_BASE_URL}/weather?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric`;
-  }
+  } 
 
   const res = await fetch(url);
   if (!res.ok) throw new Error("Invalid city or weather fetch failed");
@@ -27,7 +27,7 @@ export const fetch5DayForecast = async (cityOrCoords) => {
     url = `${WEATHER_BASE_URL}/forecast?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric`;
   }
 
-  const res = await fetch(url);
+  const res = await fetch(url); 
   if (!res.ok) throw new Error("Forecast fetch failed");
   return await res.json();
 };
