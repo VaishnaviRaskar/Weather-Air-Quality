@@ -1,0 +1,138 @@
+.weather-panel { padding: 18px; border-radius: 14px; }
+.panel-grid { gap: 16px; }
+.main-card { display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.55)); }
+.main-card-top { align-items: center; }
+.temp-large { font-size: 40px; margin: 0; }
+.weather-icon { width: 86px; height: 86px; object-fit: contain; }
+.icon-wrap { display: flex; align-items: center; justify-content: center; }
+
+.info .muted { font-size: 12px; }
+.value { font-size: 18px; font-weight: 700; margin: 4px 0; }
+.small { font-size: 13px; color: #333; }
+
+/* Forecast */
+.forecast-card { text-align: center; padding: 14px; }
+
+/* AQI panel */
+.aqi-panel { padding: 18px; }
+
+/* chart card */
+.chart-card { padding: 12px; }
+
+/* search recent */
+.recent-dropdown { top: 46px; left: 0; right: 0; width: 100%; }
+
+/* tab styling override */
+.tab-option { background: rgba(255,255,255,0.5); color: #1b1b1b; }
+.tab-option.active { color: white; }
+
+/* small visual tweaks */
+.box-section { margin-top: 12px; margin-bottom: 12px; }
+/* RECENT SEARCH DROPDOWN */
+.recent-dropdown {
+  position: absolute;
+  width: 100%;
+  background: #ffffffcc; /* soft glass effect */
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 10px 14px;
+  z-index: 20;
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid rgba(0,0,0,0.1);
+  animation: fadeIn 0.25s ease;
+}
+
+/* Title */
+.recent-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0,0,0,0.1); /* smooth thin line */
+}
+
+/* Each item */
+.recent-item {
+  padding: 8px 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 14px;
+}
+
+.recent-item:hover {
+  background: rgba(0,0,0,0.07);
+}
+
+/* City name */
+.recent-item span:first-child {
+  font-weight: 500;
+  color: #111;
+}
+
+/* Delete icon */
+.delete-btn {
+  font-size: 18px;
+  margin-left: 10px;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Smooth scrollbar */
+.recent-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.recent-dropdown::-webkit-scrollbar-thumb {
+  background: #b1b1b1;
+  border-radius: 6px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.card-box h6 svg {
+  vertical-align: middle;
+}
+
+.value svg {
+  vertical-align: middle;
+}
+.aqi-main .aqi-circle {
+  width: 60px;
+  height: 60px;
+  border: 4px solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.pollutant-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pollutant-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.pollutant-list svg {
+  opacity: 0.8;
+}
