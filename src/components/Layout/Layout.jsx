@@ -5,16 +5,29 @@ import { LayoutDashboard, Info, HelpCircle, Phone } from "lucide-react";
 export default function Layout({ children }) {
   const location = useLocation();
 
-  // Make active route detection reusable
+  // ⭐ ADD THIS — Sidebar state
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+
+  // ⭐ ADD THIS — Toggle button function
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   const isActive = (path) => location.pathname === path;
 
   return (
     <div className="app-root d-flex flex-column min-vh-100">
 
+      {/* ⭐ ADD THIS — MOBILE HEADER */}
+      <div className="mobile-header d-flex d-md-none">
+        <img src="/assets/images/logo.png" className="mobile-logo" alt="logo" />
+        <div className="mobile-toggle" onClick={toggleSidebar}>☰</div>
+      </div>
+
       <div className="d-flex flex-grow-1 main-layout">
 
-        {/* ---------------- SIDEBAR ---------------- */}
-        <aside className="sidebar glass">
+        {/* ⭐ UPDATE THIS — ADD sidebar-open class */}
+        <aside className={`sidebar glass ${sidebarOpen ? "sidebar-open" : ""}`}>
           <div className="sidebar-brand">
             <img src="/assets/images/logo.png" alt="logo" className="logo-img" />
 

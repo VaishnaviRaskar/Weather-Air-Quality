@@ -1,3 +1,4 @@
+
 /* GLOBAL RESET */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -17,6 +18,14 @@ body {
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.45);
   box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+/* ABOUT SECTION — MAKE TEXT JUSTIFIED */
+.about-section p,
+.about-section li,
+.about-section div,
+.about-section span {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Layout basics */
@@ -78,10 +87,6 @@ body {
 @media (max-width: 1000px) {
   .grid-3 { grid-template-columns: 1fr; }
   .sidebar { width: 220px; }
-}
-@media (max-width: 700px) {
-  .main-layout { padding: 12px; gap: 10px; }
-  .sidebar { display: none; }
 }
 .pollutant-list {
   list-style: none;
@@ -326,4 +331,180 @@ body {
 /* Page content space */
 .content-area {
   padding: 20px;
+}
+
+/* ============================= */
+/*   FILE 1 — MOBILE VIEW CSS    */
+/* ============================= */
+
+/* Large tablets and below */
+@media (max-width: 1000px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .sidebar { width: 220px; }
+}
+
+
+
+/* Main mobile styles */
+@media (max-width: 768px) {
+
+  /* Layout */
+  .main-layout {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+ 
+
+  /* Topbar / Header */
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Tabs */
+  .tab-group {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tab-option {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  /* Content */
+  .content-area { padding: 12px; }
+
+  /* Grid changes */
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .card-box,
+  .glass {
+    padding: 14px;
+  }
+
+  .card-box.glass:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* FAQ */
+  .faq-container { padding: 12px; }
+  .faq-item { padding: 14px; }
+
+  /* Contact */
+  .contact-wrapper { padding: 12px; }
+  .contact-card { padding: 20px; }
+
+  /* About */
+  .about-features-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .about-card { padding: 14px; }
+
+  /* Recent Search Dropdown */
+  .recent-dropdown {
+    max-height: 200px;
+    padding: 8px 10px;
+  }
+
+  .recent-item {
+    padding: 6px 5px;
+    font-size: 13px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .tab-option {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .faq-item,
+  .contact-card {
+    padding: 14px;
+  }
+
+  .recent-item { font-size: 12px; }
+}
+
+/* Ultra-small devices */
+@media (max-width: 360px) {
+  .tab-option { font-size: 11px; }
+  .recent-item { font-size: 11px; }
+}
+/* ============================= */
+/*   MOBILE VIEW FOR LAYOUT      */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* HIDE desktop sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;         /* hide by default */
+    width: 240px;
+    height: 100vh;
+    background: white;
+    z-index: 50;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* SHOW when active (toggle adds this class) */
+  .sidebar.sidebar-open {
+    left: 0;
+  }
+
+  /* MOBILE TOP BAR */
+  .mobile-header {
+    display: flex !important;
+    width: 100%;
+    padding: 12px 16px;
+    background: #fff;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 60;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .mobile-header .mobile-logo {
+    height: 36px;
+  }
+
+  .mobile-header .mobile-toggle {
+    cursor: pointer;
+  }
+
+  /* HIDE original brand section from sidebar on mobile header */
+  .sidebar-brand {
+    margin-top: 70px;
+  }
+
+  /* CONTENT FULL WIDTH */
+  .content-area {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 16px;
+    margin-top: 70px; /* move down due to mobile header */
+  }
+}
+/* Mobile View → force vertical stacking */
+@media (max-width: 768px) {
+  footer .d-flex {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 4px !important;
+  }
 }

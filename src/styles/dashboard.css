@@ -136,3 +136,112 @@
 .pollutant-list svg {
   opacity: 0.8;
 }
+
+/* ============================= */
+/*   FILE 2 — MOBILE VIEW CSS    */
+/* ============================= */
+
+/* Tablets & mobile */
+@media (max-width: 768px) {
+
+  .weather-panel,
+  .aqi-panel,
+  .chart-card {
+    padding: 14px;
+  }
+
+  .panel-grid {
+    gap: 14px;
+  }
+
+  /* Weather main card */
+  .main-card {
+    padding: 14px;
+    flex-direction: column;
+  }
+
+  .main-card-top {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .temp-large {
+    font-size: 34px;
+  }
+
+  .weather-icon {
+    width: 75px;
+    height: 75px;
+  }
+
+  /* Info text */
+  .value {
+    font-size: 16px;
+  }
+  .small {
+    font-size: 12px;
+  }
+
+  /* Forecast */
+  .forecast-card {
+    padding: 12px;
+  }
+
+  /* AQI */
+  .aqi-main .aqi-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  /* Pollutants */
+  .pollutant-list li {
+    font-size: 13px;
+  }
+
+  /* Recent Search Dropdown */
+  .recent-dropdown {
+    padding: 8px;
+    max-height: 200px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .temp-large {
+    font-size: 28px;
+  }
+
+  .weather-icon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .main-card {
+    padding: 10px;
+  }
+
+  .aqi-main .aqi-circle {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .forecast-card,
+  .aqi-panel,
+  .chart-card {
+    padding: 10px;
+  }
+
+  .pollutant-list li {
+    font-size: 12px;
+  }
+}
+
+/* Ultra-small devices */
+@media (max-width: 360px) {
+  .temp-large { font-size: 24px; }
+  .weather-icon { width: 52px; height: 52px; }
+  .value { font-size: 14px; }
+}
