@@ -2,13 +2,16 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LayoutDashboard, Info, HelpCircle, Phone } from "lucide-react";
 
+// ✅ Correct Import for your folder structure
+// src/components/Layout/Layout.jsx → src/assets/images/logo.png
+import logo from "../../assets/images/logo.png";
+
 export default function Layout({ children }) {
   const location = useLocation();
 
-  // ⭐ ADD THIS — Sidebar state
+  // Sidebar state
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
-  // ⭐ ADD THIS — Toggle button function
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -18,18 +21,18 @@ export default function Layout({ children }) {
   return (
     <div className="app-root d-flex flex-column min-vh-100">
 
-      {/* ⭐ ADD THIS — MOBILE HEADER */}
+      {/* ⭐ MOBILE HEADER */}
       <div className="mobile-header d-flex d-md-none">
-        <img src="/assets/images/logo.png" className="mobile-logo" alt="logo" />
+        <img src={logo} className="mobile-logo" alt="logo" /><h1>Atmosio</h1>
         <div className="mobile-toggle" onClick={toggleSidebar}>☰</div>
       </div>
 
       <div className="d-flex flex-grow-1 main-layout">
 
-        {/* ⭐ UPDATE THIS — ADD sidebar-open class */}
+        {/* ⭐ SIDEBAR */}
         <aside className={`sidebar glass ${sidebarOpen ? "sidebar-open" : ""}`}>
           <div className="sidebar-brand">
-            <img src="/assets/images/logo.png" alt="logo" className="logo-img" />
+            <img src={logo} alt="logo" className="logo-img" />
 
             <div>
               <h4 className="brand-title">Atmosio</h4>
@@ -74,7 +77,7 @@ export default function Layout({ children }) {
           </nav>
         </aside>
 
-        {/* ---------------- MAIN CONTENT ---------------- */}
+        {/* ⭐ MAIN CONTENT */}
         <main className="flex-grow-1 content-area">
           {children}
         </main>
